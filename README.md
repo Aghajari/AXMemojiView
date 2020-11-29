@@ -11,7 +11,7 @@
 - [Usage](#usage)
 - [Customization](#customization)
 - [MemojiProvider](#memojiprovider)
-- [+1500 memoji Pack](#+1500-memoji-pack)
+- [+1500 memoji Pack](#1500-memoji-pack)
 - [MemojiLoader](#memojiloader)
 - [Author](#author)
 - [License](#license)
