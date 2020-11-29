@@ -1,0 +1,3 @@
+include ':AXMemojiView'
+include ':app'
+rootProject.name = "Memoji"
