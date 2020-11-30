@@ -19,6 +19,8 @@
 ## Installation
 You have to work with [AXEmojiView](https://github.com/Aghajari/AXEmojiView) first!
 
+<a href="https://github.com/Aghajari/AXEmojiView"><img align="center" src="https://github-readme-stats.vercel.app/api/pin?username=aghajari&repo=AXEmojiView" alt="AXEmojiView" /></a>
+
 AXMemojiView is available in the JCenter, so you just need to add it as a dependency (Module gradle)
 
 Gradle
