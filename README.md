@@ -99,6 +99,8 @@ the json format of the MemojiProvider will be like this :
 
 <img width="550" alt="+1500 memoji Pack | Characters" src="https://user-images.githubusercontent.com/30867537/100552501-d5e87380-329c-11eb-8c7c-2df005d8c6be.png">
 
+[assets/Memoji](https://github.com/Aghajari/AXMemojiView/tree/v1.0.0-alpha/app/src/main/assets/Memoji)
+
 ## MemojiLoader
 
 Since the size of the memoji files is very large, it is better to upload them to the your server and load them with glide by using MemojiLoader :
