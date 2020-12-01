@@ -97,7 +97,7 @@ the json format of the MemojiProvider will be like this :
 ```
 
 ## +1500 memoji Pack
-**Moein Rabti [+1500 memoji Pack](https://www.figma.com/community/file/913339145625776252) :** This pack includes 28 characters in white and black skin color and 29 different poses.
+**[Moein Rabti](https://instagram.com/remim.dsgn) :** [+1500 memoji Pack](https://www.figma.com/community/file/913339145625776252) includes 28 characters in white and black skin color and 29 different poses.
 
 <img width="550" alt="+1500 memoji Pack | Characters" src="https://user-images.githubusercontent.com/30867537/100552501-d5e87380-329c-11eb-8c7c-2df005d8c6be.png">
 
