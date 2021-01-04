@@ -25,8 +25,8 @@ AXMemojiView is available in the JCenter, so you just need to add it as a depend
 
 Gradle
 ```gradle
-implementation 'com.aghajari.memojiview:AXMemojiView:1.0.0'
-implementation 'com.aghajari.emojiview:AXEmojiView:1.2.4'
+implementation 'com.aghajari.memojiview:AXMemojiView:1.0.3'
+implementation 'com.aghajari.emojiview:AXEmojiView:1.3.0'
 ```
 
 Maven
@@ -34,7 +34,7 @@ Maven
 <dependency>
   <groupId>com.aghajari.memojiview</groupId>
   <artifactId>AXMemojiView</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.3</version>
   <type>pom</type>
 </dependency>
 ```
