@@ -43,7 +43,7 @@ public class Utils {
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                ((AXEmojiLayout.LayoutParams) view.getLayoutParams()).left = (int) valueAnimator.getAnimatedValue();
+                ((AXEmojiLayout.LayoutParams) view.getLayoutParams()).leftMargin = (int) valueAnimator.getAnimatedValue();
                 view.requestLayout();
             }
         });

@@ -44,7 +44,7 @@ import java.util.List;
 
 /**
  * AXMemojiView
- * @version : 1.0.0
+ * @version : 1.0.3
  */
 public class AXMemojiManager {
 

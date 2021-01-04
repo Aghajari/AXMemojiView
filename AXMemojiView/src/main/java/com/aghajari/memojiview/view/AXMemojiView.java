@@ -18,7 +18,6 @@
 
 package com.aghajari.memojiview.view;
 
-import android.animation.ObjectAnimator;
 import android.content.Context;
 
 import androidx.appcompat.widget.AppCompatImageView;
@@ -27,6 +26,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.widget.EditText;
+import android.widget.FrameLayout;
 
 import com.aghajari.emojiview.utils.Utils;
 import com.aghajari.emojiview.view.AXEmojiLayout;
@@ -44,6 +44,14 @@ public class AXMemojiView extends AXEmojiLayout implements FindVariantListener {
         super(context);
         this.events = ev;
         init();
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        if (vp!=null) vp.getLayoutParams().width = w;
+        if (add_vp!=null) add_vp.getLayoutParams().width = w;
+        if (add_vp!=null) ((FrameLayout.LayoutParams)add_vp.getLayoutParams()).leftMargin = w;
     }
 
     AXCategoryRecycler categoryViews;
@@ -97,7 +105,7 @@ public class AXMemojiView extends AXEmojiLayout implements FindVariantListener {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             if (recyclerView == null) {
-                if (!AXMemojiManager.getMemojiViewTheme().shouldShowAlwaysDivider()) {
+                if (!AXMemojiManager.getMemojiViewTheme().isAlwaysShowDividerEnabled()) {
                     if (!isShowing) {
                         isShowing = true;
                         if (categoryViews != null) categoryViews.Divider.setVisibility(GONE);
@@ -111,7 +119,7 @@ public class AXMemojiView extends AXEmojiLayout implements FindVariantListener {
             if (recyclerView != null && scrollListener2 != null)
                 scrollListener2.onScrolled(recyclerView, dx, dy);
 
-            if (!AXMemojiManager.getMemojiViewTheme().shouldShowAlwaysDivider()) {
+            if (!AXMemojiManager.getMemojiViewTheme().isAlwaysShowDividerEnabled()) {
                 RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
                 int firstVisibleItemPosition = ((GridLayoutManager) layoutManager).findFirstCompletelyVisibleItemPosition();
                 int visibleItemCount = layoutManager.getChildCount();
@@ -144,17 +152,17 @@ public class AXMemojiView extends AXEmojiLayout implements FindVariantListener {
         if (AXMemojiManager.getMemojiViewTheme().isCategoryEnabled())
             top = Utils.dpToPx(getContext(), 49);
 
-        vp = new ViewPager(getContext());
-        this.addView(vp, new AXEmojiLayout.LayoutParams(0, top, -1, -1));
-        vp.setAdapter(new AXMemojiViewPagerAdapter(events, scrollListener, this));
-        vp.setPadding(0, 0, 0, top);
-
         final int w = getContext().getResources().getDisplayMetrics().widthPixels;
 
+        vp = new ViewPager(getContext());
+        this.addView(vp, new AXEmojiLayout.LayoutParams(0, top, w, -1));
+        vp.setAdapter(new AXMemojiViewPagerAdapter(events, scrollListener, this));
+        //vp.setPadding(0, 0, 0, top);
+
         add_vp = new ViewPager(getContext());
-        this.addView(add_vp, new AXEmojiLayout.LayoutParams(w, top, -1, -1));
+        this.addView(add_vp, new AXEmojiLayout.LayoutParams(w, top, w, -1));
         add_vp.setAdapter(new AXMemojiMoreViewPagerAdapter(events, scrollListener, this));
-        add_vp.setPadding(0, 0, 0, top);
+        //add_vp.setPadding(0, 0, 0, top);
 
         if (AXMemojiManager.getMemojiViewTheme().isCategoryEnabled()) {
             categoryViews = new AXCategoryRecycler(getContext(), this);
@@ -223,7 +231,7 @@ public class AXMemojiView extends AXEmojiLayout implements FindVariantListener {
     @Override
     public void setPageIndex(int index) {
         vp.setCurrentItem(index, true);
-        if (!AXMemojiManager.getMemojiViewTheme().shouldShowAlwaysDivider()) {
+        if (!AXMemojiManager.getMemojiViewTheme().isAlwaysShowDividerEnabled()) {
             if (((AXMemojiViewPagerAdapter) vp.getAdapter()).recyclerViews.size() > index) {
                 scrollListener.onScrolled(((AXMemojiViewPagerAdapter) vp.getAdapter()).recyclerViews.get(index), 0, 1);
             } else {
@@ -279,7 +287,7 @@ public class AXMemojiView extends AXEmojiLayout implements FindVariantListener {
         add_vp.getAdapter().notifyDataSetChanged();
         vp.getAdapter().notifyDataSetChanged();
         vp.setCurrentItem(0, false);
-        if (!AXMemojiManager.getMemojiViewTheme().shouldShowAlwaysDivider())
+        if (!AXMemojiManager.getMemojiViewTheme().isAlwaysShowDividerEnabled())
             scrollListener.onScrolled(null, 0, 1);
         if (categoryViews != null) categoryViews.setPageIndex(0);
     }
@@ -326,14 +334,14 @@ public class AXMemojiView extends AXEmojiLayout implements FindVariantListener {
 
         vp.getAdapter().notifyDataSetChanged();
         //vp.setCurrentItem(0, false);
-        if (!AXMemojiManager.getMemojiViewTheme().shouldShowAlwaysDivider())
+        if (!AXMemojiManager.getMemojiViewTheme().isAlwaysShowDividerEnabled())
             scrollListener.onScrolled(null, 0, 1);
         if (categoryViews != null) categoryViews.setPageIndex(0);
     }
 
     void setMoreCategoryIndex(int index) {
         add_vp.setCurrentItem(index, true);
-        if (!AXMemojiManager.getMemojiViewTheme().shouldShowAlwaysDivider()) {
+        if (!AXMemojiManager.getMemojiViewTheme().isAlwaysShowDividerEnabled()) {
             if (((AXMemojiMoreViewPagerAdapter) add_vp.getAdapter()).recyclerViews.size() > index) {
                 scrollListener.onScrolled(((AXMemojiMoreViewPagerAdapter) add_vp.getAdapter()).recyclerViews.get(index), 0, 1);
             } else {

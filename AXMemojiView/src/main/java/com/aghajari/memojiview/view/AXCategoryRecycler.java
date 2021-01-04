@@ -94,7 +94,7 @@ class AXCategoryRecycler extends AXEmojiLayout {
         Divider = new View(getContext());
         this.addView(Divider, new LayoutParams(
                 0, Utils.dpToPx(getContext(), 48), w, Utils.dpToPx(getContext(), 1)));
-        if (!AXMemojiManager.getMemojiViewTheme().shouldShowAlwaysDivider())
+        if (!AXMemojiManager.getMemojiViewTheme().isAlwaysShowDividerEnabled())
             Divider.setVisibility(GONE);
         Divider.setBackgroundColor(AXMemojiManager.getMemojiViewTheme().getDividerColor());
 

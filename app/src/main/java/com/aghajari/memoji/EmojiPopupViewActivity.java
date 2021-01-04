@@ -13,17 +13,16 @@ import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.aghajari.emojiview.AXEmojiUtils;
 import com.aghajari.emojiview.listener.SimplePopupAdapter;
+import com.aghajari.emojiview.view.AXEmojiEditText;
 import com.aghajari.emojiview.view.AXEmojiPager;
 import com.aghajari.emojiview.view.AXEmojiPopupLayout;
 
 // the main of this activity exists on AXEmojiView sample : https://github.com/Aghajari/AXEmojiView
 public class EmojiPopupViewActivity extends AppCompatActivity {
-    FrameLayout root;
-    FrameLayout contentLayout;
     AXEmojiPopupLayout layout;
 
     FrameLayout edtParent;
-    CustomEditText edt;
+    AXEmojiEditText edt;
     AppCompatImageView emojiImg;
 
     private boolean isShowing = false;
@@ -37,13 +36,11 @@ public class EmojiPopupViewActivity extends AppCompatActivity {
     }
 
     protected void init(final int color){
-        root = findViewById(R.id.root);
 
         getSupportActionBar().setTitle(AXEmojiUtils.replaceWithEmojis(this,
                 "AXMemojiView "+ AXEmojiUtils.getEmojiUnicode(0x1f60d),20));
 
         layout = findViewById(R.id.layout);
-        contentLayout = findViewById(R.id.content_layout);
 
         // get emoji edit text
         edtParent = findViewById(R.id.edt_parent);
@@ -54,7 +51,7 @@ public class EmojiPopupViewActivity extends AppCompatActivity {
 
         // create emoji popup
         layout.initPopupView(emojiPager);
-        edt.setEmojiLayout(layout);
+
         layout.hideAndOpenKeyboard();
         edt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,25 +84,21 @@ public class EmojiPopupViewActivity extends AppCompatActivity {
             @Override
             public void onShow() {
                 updateButton(true);
-                updateBottom(layout.getPopupHeight());
             }
 
             @Override
             public void onDismiss() {
                 updateButton(false);
-                updateBottom(0);
             }
 
             @Override
             public void onKeyboardOpened(int height) {
                 updateButton(false);
-                updateBottom(height);
             }
 
             @Override
             public void onKeyboardClosed() {
                 updateButton(layout.isShowing());
-                updateBottom(layout.isShowing() ? layout.getPopupHeight() : 0);
             }
 
             private void updateButton(boolean emoji){
@@ -120,11 +113,6 @@ public class EmojiPopupViewActivity extends AppCompatActivity {
                     DrawableCompat.setTint(DrawableCompat.wrap(dr), color);
                     emojiImg.setImageDrawable(dr);
                 }
-            }
-
-            private void updateBottom(int bottom){
-                ((FrameLayout.LayoutParams)contentLayout.getLayoutParams()).bottomMargin = bottom;
-                contentLayout.requestLayout();
             }
         });
 
