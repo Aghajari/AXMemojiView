@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.aghajari.emojiview.AXEmojiManager;
-import com.aghajari.emojiview.emoji.iosprovider.AXIOSEmojiProvider;
+import com.aghajari.emojiview.iosprovider.AXIOSEmojiProvider;
 import com.aghajari.memojiview.AXMemojiManager;
 import com.aghajari.memojiview.memoji.Memoji;
 import com.aghajari.memojiview.memoji.MemojiCharacter;
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             public void onLoadMemoji(AppCompatImageView view, Memoji memoji) {
 
                 // Load memojis from server
-                /**String serverURL = "https://..../Memoji/";
+                /*String serverURL = "https://..../Memoji/";
                 String url = serverURL + memoji.getCategory()+"/"+memoji.getCharacter()+"/"+memoji.getImage();
                 Glide.with(view)
                  .load(url)

@@ -1,7 +1,7 @@
 siteUrl = https://github.com/Aghajari/AXMemojiView
 gitUrl = https://github.com/Aghajari/AXMemojiView.git
-version = 1.0.3
-groupId = com.aghajari.memojiview
+version = 1.1.0
+groupId = io.github.aghajari
 licenses = ['Apache-2.0']
 id = AXMemojiView
 name = AXMemojiView
