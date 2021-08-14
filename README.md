@@ -1,6 +1,11 @@
 # AXMemojiView
 <img width="845" alt="AXMemojiView" src="https://user-images.githubusercontent.com/30867537/100551530-6cfdfd00-3296-11eb-8963-026ba0641d44.png">
 
+[![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
+[![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.aghajari/AXMemojiView.svg?label=Maven%20Central)](https://search.maven.org/artifact/io.github.aghajari/AXMemojiView/1.1.0/aar)
+[![Join the chat at https://gitter.im/Aghajari/community](https://badges.gitter.im/Aghajari/community.svg)](https://gitter.im/Aghajari/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
  AXMemojiView is a new page for [AXEmojiView](https://github.com/Aghajari/AXEmojiView) which shows memoji just like stickers
 
 ## Screenshots 
@@ -21,21 +26,21 @@ You have to work with [AXEmojiView](https://github.com/Aghajari/AXEmojiView) fir
 
 <a href="https://github.com/Aghajari/AXEmojiView"><img align="center" src="https://github-readme-stats.vercel.app/api/pin?username=aghajari&repo=AXEmojiView" alt="AXEmojiView" /></a>
 
-AXMemojiView is available in the JCenter, so you just need to add it as a dependency (Module gradle)
+AXMemojiView is available in the `mavenCentral()`, so you just need to add it as a dependency (Module gradle)
 
 Gradle
 ```gradle
-implementation 'com.aghajari.memojiview:AXMemojiView:1.0.3'
-implementation 'com.aghajari.emojiview:AXEmojiView:1.3.0'
+implementation 'io.github.aghajari:AXMemojiView:1.1.0'
+implementation 'io.github.aghajari:AXEmojiView:1.4.0'
 ```
 
 Maven
 ```xml
 <dependency>
-  <groupId>com.aghajari.memojiview</groupId>
+  <groupId>io.github.aghajari</groupId>
   <artifactId>AXMemojiView</artifactId>
-  <version>1.0.3</version>
-  <type>pom</type>
+  <version>1.1.0</version>
+  <type>aar</type>
 </dependency>
 ```
 
